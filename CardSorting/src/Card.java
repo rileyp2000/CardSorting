@@ -1,8 +1,6 @@
-/**
- * 
- */
 
 /**
+ * Card class as part of Assignment 2
  * @author gibbonss
  *
  */
@@ -73,7 +71,8 @@ public class Card {
 	}
 
 	/**
-	 * @return
+	 * Converts the Suit to an integer value
+	 * @return The int value to the Suit
 	 */
 	public int getSuitInt() {
 		switch (getSuit().toUpperCase()) {
