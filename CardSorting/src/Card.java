@@ -1,6 +1,7 @@
 
 /**
  * Card class as part of Assignment 2
+ * 
  * @author gibbonss
  *
  */
@@ -16,8 +17,157 @@ public class Card {
 		suit = "Spades";
 	}
 
-	// TODO constructors (int, int), (String, String), (int, String), (String,int)
+	// TODO write comments for constructors
+	
+	public Card(int suit, int rank) {
+		switch (suit) {
+		case 0:
+			this.suit = "CLUBS";
+			break;
+		case 1:
+			this.suit = "DIAMONDS";
+			break;
+		case 2:
+			this.suit = "HEARTS";
+			break;
+		case 3:
+			this.suit = "SPADES";
+			break;
+		default:
+			this.suit = "SPADES";
+			break;
+		}
+		this.rank = rank;
 
+	}
+
+	public Card(String suit, String rank) {
+		this.suit = suit.toUpperCase();
+		rank = rank.toUpperCase();
+		switch (rank) {
+		case "ACE":
+			this.rank = 1;
+			break;
+		case "TWO":
+			this.rank = 2;
+			break;
+		case "THREE":
+			this.rank = 3;
+			break;
+		case "FOUR":
+			this.rank = 4;
+			break;
+		case "FIVE":
+			this.rank = 5;
+			break;
+		case "SIX":
+			this.rank = 6;
+			break;
+		case "SEVEN":
+			this.rank = 7;
+			break;
+		case "EIGHT":
+			this.rank = 8;
+			break;
+		case "NINE":
+			this.rank = 9;
+			break;
+		case "TEN":
+			this.rank = 10;
+			break;
+		case "JACK":
+			this.rank = 11;
+			break;
+		case "QUEEN":
+			this.rank = 12;
+			break;
+		case "KING":
+			this.rank = 13;
+			break;
+		default:
+			this.rank = 0;
+			break;
+		}
+
+	}
+
+	public Card(int suit, String rank) {
+
+		switch (suit) {
+		case 0:
+			this.suit = "CLUBS";
+			break;
+		case 1:
+			this.suit = "DIAMONDS";
+			break;
+		case 2:
+			this.suit = "HEARTS";
+			break;
+		case 3:
+			this.suit = "SPADES";
+			break;
+		default:
+			this.suit = "SPADES";
+			break;
+		}
+
+		rank = rank.toUpperCase();
+		switch (rank) {
+		case "ACE":
+			this.rank = 1;
+			break;
+		case "TWO":
+			this.rank = 2;
+			break;
+		case "THREE":
+			this.rank = 3;
+			break;
+		case "FOUR":
+			this.rank = 4;
+			break;
+		case "FIVE":
+			this.rank = 5;
+			break;
+		case "SIX":
+			this.rank = 6;
+			break;
+		case "SEVEN":
+			this.rank = 7;
+			break;
+		case "EIGHT":
+			this.rank = 8;
+			break;
+		case "NINE":
+			this.rank = 9;
+			break;
+		case "TEN":
+			this.rank = 10;
+			break;
+		case "JACK":
+			this.rank = 11;
+			break;
+		case "QUEEN":
+			this.rank = 12;
+			break;
+		case "KING":
+			this.rank = 13;
+			break;
+		default:
+			this.rank = 0;
+			break;
+		}
+	}
+
+
+	public Card(String suit, int rank) {
+		this.suit = suit;
+		this.rank = rank;
+
+	}
+
+	
+	
+	//TODO write comments for getters and setters
 	public int getRank() {
 		return rank;
 	}
@@ -72,6 +222,7 @@ public class Card {
 
 	/**
 	 * Converts the Suit to an integer value
+	 * 
 	 * @return The int value to the Suit
 	 */
 	public int getSuitInt() {
