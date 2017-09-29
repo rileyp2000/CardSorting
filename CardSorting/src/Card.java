@@ -5,7 +5,7 @@
  * @author gibbonss
  *
  */
-public class Card {
+public class Card implements Comparable<Card> {
 	private int rank;
 	private String suit;
 
@@ -18,7 +18,7 @@ public class Card {
 	}
 
 	// TODO write comments for constructors
-	
+
 	public Card(int suit, int rank) {
 		switch (suit) {
 		case 0:
@@ -158,16 +158,13 @@ public class Card {
 		}
 	}
 
-
 	public Card(String suit, int rank) {
 		this.suit = suit;
 		this.rank = rank;
 
 	}
 
-	
-	
-	//TODO write comments for getters and setters
+	// TODO write comments for getters and setters
 	public int getRank() {
 		return rank;
 	}
@@ -185,6 +182,7 @@ public class Card {
 	}
 
 	/**
+	 * 
 	 * @return
 	 */
 	public String getRankStr() {
@@ -247,6 +245,19 @@ public class Card {
 	 */
 	public String toString() {
 		return getRankStr() + " of " + getSuit();
+	}
+
+	@Override
+	public int compareTo(Card o) {
+		return suit.compareTo(o.suit);
+	}
+
+	public boolean equals(Object o) {
+		if (!(o instanceof Card))
+			return false;
+		else
+			return suit.equals(((Card) o).suit);
+
 	}
 
 }
