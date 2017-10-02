@@ -60,6 +60,7 @@ public class Deck {
 		return result;
 	}
 
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Deck) {
 			return this.toString().equals(((Deck) o).toString());
@@ -82,6 +83,22 @@ public class Deck {
 
 		return select;
 
+	}
+
+	public Deck[] deal(int numHands, int numPerHand) {
+		Deck[] hands = new Deck[numHands];
+		Deck dealer = this;
+		for (int i = 0; i < numHands; i++) {
+			Deck temp = new Deck();
+			temp.cards = new Card[numPerHand];
+			temp.sorted = false;
+			for (int j = 0; j < numPerHand; j++) {
+				temp.cards[j] = dealer.pick();
+			}
+			hands[i] = temp;
+		}
+
+		return hands;
 	}
 
 }
