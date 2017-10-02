@@ -22,19 +22,19 @@ public class Card implements Comparable<Card> {
 	public Card(int suit, int rank) {
 		switch (suit) {
 		case 0:
-			this.suit = "CLUBS";
+			this.suit = "CLUBS   ";
 			break;
 		case 1:
 			this.suit = "DIAMONDS";
 			break;
 		case 2:
-			this.suit = "HEARTS";
+			this.suit = "HEARTS  ";
 			break;
 		case 3:
-			this.suit = "SPADES";
+			this.suit = "SPADES  ";
 			break;
 		default:
-			this.suit = "SPADES";
+			this.suit = "SPADES  ";
 			break;
 		}
 		this.rank = rank;
@@ -95,19 +95,19 @@ public class Card implements Comparable<Card> {
 
 		switch (suit) {
 		case 0:
-			this.suit = "CLUBS";
+			this.suit = "CLUBS   ";
 			break;
 		case 1:
 			this.suit = "DIAMONDS";
 			break;
 		case 2:
-			this.suit = "HEARTS";
+			this.suit = "HEARTS  ";
 			break;
 		case 3:
-			this.suit = "SPADES";
+			this.suit = "SPADES  ";
 			break;
 		default:
-			this.suit = "SPADES";
+			this.suit = "SPADES  ";
 			break;
 		}
 
@@ -188,33 +188,33 @@ public class Card implements Comparable<Card> {
 	public String getRankStr() {
 		switch (getRank()) {
 		case 1:
-			return "Ace";
+			return "Ace  ";
 		case 2:
-			return "Two";
+			return "Two  ";
 		case 3:
 			return "Three";
 		case 4:
-			return "Four";
+			return "Four ";
 		case 5:
-			return "Five";
+			return "Five ";
 		case 6:
-			return "Six";
+			return "Six  ";
 		case 7:
 			return "Seven";
 		case 8:
 			return "Eight";
 		case 9:
-			return "Nine";
+			return "Nine ";
 		case 10:
-			return "Ten";
+			return "Ten  ";
 		case 11:
-			return "Jack";
+			return "Jack ";
 		case 12:
 			return "Queen";
 		case 13:
-			return "King";
+			return "King ";
 		default:
-			return "Ace";
+			return "Ace  ";
 		}
 	}
 
@@ -225,13 +225,13 @@ public class Card implements Comparable<Card> {
 	 */
 	public int getSuitInt() {
 		switch (getSuit().toUpperCase()) {
-		case "CLUBS":
+		case "CLUBS   ":
 			return 0;
 		case "DIAMONDS":
 			return 1;
-		case "HEARTS":
+		case "HEARTS  ":
 			return 2;
-		case "SPADES":
+		case "SPADES  ":
 			return 3;
 		default:
 			return 0;
