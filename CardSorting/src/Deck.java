@@ -111,5 +111,21 @@ public class Deck {
 
 		return hands;
 	}
+	
+	
+	public void mergeSort() {
+		mSort(cards);
+	}
+	
+	public void mSort(Card[] c) {
+		int n = c.length;
+		Card[] temp = new Card[n];
+		recursiveSort(c, 0, n-1);
+	}
+	
+	public void recursiveSort(Card[] c, int start, int end) {
+		
+	}
+	
 
 }
