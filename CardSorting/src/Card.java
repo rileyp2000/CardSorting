@@ -2,7 +2,7 @@
 /**
  * Card class as part of Assignment 2
  * 
- * @author gibbonss
+ * @author Sean Gibbons
  *
  */
 public class Card implements Comparable<Card> {
@@ -19,6 +19,15 @@ public class Card implements Comparable<Card> {
 
 	// TODO write comments for constructors
 
+	/**
+	 * Constructor for int suit and int rank
+	 * 
+	 * @param suit
+	 *            an int which, when fed into a switch statement, is converted into
+	 *            the appropriate suit
+	 * @param rank
+	 *            an int which will become the rank
+	 */
 	public Card(int suit, int rank) {
 		switch (suit) {
 		case 0:
@@ -41,6 +50,15 @@ public class Card implements Comparable<Card> {
 
 	}
 
+	/**
+	 * Constructor for String suit and String rank
+	 * 
+	 * @param suit
+	 *            a String which will become the Card's suit
+	 * @param rank
+	 *            a String which will be converted into the appropriate int and
+	 *            assigned to the rank field
+	 */
 	public Card(String suit, String rank) {
 		this.suit = suit.toUpperCase();
 		rank = rank.toUpperCase();
@@ -91,6 +109,16 @@ public class Card implements Comparable<Card> {
 
 	}
 
+	/**
+	 * Constructor for int suit and String rank
+	 * 
+	 * @param suit
+	 *            an int which, when fed into a switch statement, is converted into
+	 *            the appropriate suit
+	 * @param rank
+	 *            a String which will be converted into the appropriate int and
+	 *            assigned to the rank field
+	 */
 	public Card(int suit, String rank) {
 
 		switch (suit) {
@@ -158,32 +186,42 @@ public class Card implements Comparable<Card> {
 		}
 	}
 
+	/**
+	 * Constructor for String suit and int rank
+	 * 
+	 * @param suit
+	 *            a String which is to be the Card's suit
+	 * @param rank
+	 *            an int which is to be the Card's rank
+	 */
 	public Card(String suit, int rank) {
 		this.suit = suit;
 		this.rank = rank;
 
 	}
 
-	// TODO write comments for getters and setters
+	/**
+	 * Returns the rank
+	 * 
+	 * @return the int value of rank
+	 */
 	public int getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
-		this.rank = rank;
-	}
-
+	/**
+	 * Returns the suit
+	 * 
+	 * @return the suit as a String
+	 */
 	public String getSuit() {
 		return suit;
 	}
 
-	public void setSuit(String suit) {
-		this.suit = suit;
-	}
-
 	/**
+	 * Converts the int rank to the appropriate String
 	 * 
-	 * @return
+	 * @return the String counterpart to the rank
 	 */
 	public String getRankStr() {
 		switch (getRank()) {
@@ -238,11 +276,7 @@ public class Card implements Comparable<Card> {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString() {
 		return getRankStr() + " of " + getSuit();
