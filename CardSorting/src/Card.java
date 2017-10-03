@@ -243,20 +243,25 @@ public class Card implements Comparable<Card> {
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
 		return getRankStr() + " of " + getSuit();
 	}
 
 	@Override
 	public int compareTo(Card o) {
-		return suit.compareTo(o.suit);
+		if (getSuitInt() - o.getSuitInt() == 0)
+			return (int) Math.signum(rank - o.rank);
+		else
+			return (int) Math.signum(getSuitInt() - o.getSuitInt());
 	}
 
+	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Card))
 			return false;
 		else
-			return suit.equals(((Card) o).suit);
+			return this.compareTo((Card) o) == 0;
 
 	}
 

@@ -15,13 +15,6 @@ public class RankComparator implements Comparator<Card> {
 		ascending = true;
 	}
 
-	/**
-	 * @param ascending
-	 */
-	public RankComparator(boolean ascending) {
-		this.ascending = ascending;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -43,6 +36,14 @@ public class RankComparator implements Comparator<Card> {
 	 */
 	public boolean equals(Card o1, Card o2) {
 		return this.compare(o1, o2) == 0;
+	}
+
+	public void setAscending() {
+		ascending = true;
+	}
+
+	public void setDescending() {
+		ascending = false;
 	}
 
 }

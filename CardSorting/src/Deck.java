@@ -8,6 +8,7 @@ public class Deck {
 	private Card[] cards;
 	private int topCard;// keeps track of the card currently in the last position
 	private boolean sorted;
+	private Card[] temp;
 
 	public Deck() {
 		cards = new Card[DeckConstants.TOTAL_CARDS];
@@ -37,10 +38,9 @@ public class Deck {
 
 	public int getTopCard() {
 		return topCard;
-		
+
 	}
-	
-	
+
 	public void shuffle() {
 		sorted = false;
 		for (int i = DeckConstants.TOTAL_CARDS - 1; i > 0; i--) {
@@ -111,21 +111,57 @@ public class Deck {
 
 		return hands;
 	}
-	
-	
+
 	public void mergeSort() {
 		mSort(cards);
+		sorted = true;
 	}
-	
-	public void mSort(Card[] c) {
-		int n = c.length;
-		Card[] temp = new Card[n];
-		recursiveSort(c, 0, n-1);
-	}
-	
-	public void recursiveSort(Card[] c, int start, int end) {
-		
-	}
-	
 
+	private void mSort(Card[] c) {
+		int n = c.length;
+		temp = new Card[n];
+		recursiveSort(c, 0, n - 1);
+	}
+
+	private void recursiveSort(Card[] c, int start, int end) {
+		if (end - start < 2) {
+			if (end > start && c[end].compareTo(c[start]) == -1) {
+
+				Card t = c[end];
+				c[end] = c[start];
+				c[start] = t;
+			}
+		} else {
+			int middle = (start + end) / 2;
+			recursiveSort(c, start, middle);
+			recursiveSort(c, middle + 1, end);
+			merge(c, start, middle, end);
+		}
+	}
+
+	private void merge(Card[] c, int start, int middle, int end) {
+		int i = start;
+		int j = middle + 1;
+		int k = start;
+
+		while (i <= middle && j <= end) {
+			if (c[i].compareTo(c[j]) == -1) {
+				temp[k] = c[i++];
+			} else {
+				temp[k] = c[j++];
+			}
+			k++;
+		}
+
+		while (i <= middle) {
+			temp[k++] = c[i++];
+		}
+
+		while (j <= end) {
+			temp[k++] = c[j++];
+		}
+
+		for (k = start; k <= end; k++)
+			c[k] = temp[k];
+	}
 }
