@@ -38,6 +38,14 @@ public class Deck {
 
 	}
 
+	public Deck(boolean sort) {
+		new Deck();
+		if (!sort) {
+			this.shuffle();
+		}
+
+	}
+
 	/**
 	 * A simple check of whether the object is sorted
 	 * 
