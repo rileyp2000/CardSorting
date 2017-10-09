@@ -2,40 +2,33 @@
 public class DeckTester {
 
 	public static void main(String[] args) {
-
-		/**
-		 * TESTS Card.compareTo(Card o) Card c1 = new Card(2, 13); Card c2 = new Card(2,
-		 * 10); System.out.println(c1 + " " + c2); System.out.println(c1.compareTo(c2));
-		 * 
-		 * 
-		 */
-
-		 
-		Deck d1 = new Deck();  Deck d2 = new Deck();
-		System.out.println(d1.equals(d2));
+		Deck d1 = new Deck();
+		//System.out.println(d1 + "\n");
+		//d1.shuffle();
+		//System.out.println(d1);
+		//Deck d2 = new Deck(false);
+		Deck d2 = new Deck();
+		//System.out.println(d2 + "\n\n");
 		
-		/*
-		System.out.println(d1);
-		d1.shuffle();
-		System.out.println(d1);
-		d1.selectionSort();
-		System.out.println(d1);
+		//Deck[] hands = d1.deal(3, 5);
+		/*for(Deck d: hands)
+			System.out.println(d);*/
 		
-		*/
+		Deck[] hands = d1.deal(5, 11);
+		for(Deck d: hands)
+			System.out.println(d);		
 		
+		//System.out.println(d1.equals(d2));
+		//System.out.println(d1.pick().compareTo(d2.pick()));
 		
+		//d1.shuffle();
+		//d1.selectionSort();
+		//System.out.println("Selection: \n" + d1);
 		
-		
-		
-		
-		/*Deck d1 = new Deck();
-		 System.out.println(d1);
-
-		 Deck[] warGame = d1.deal(2, 25);
-		 System.out.println(warGame[0]);
-		 System.out.println(warGame[1]);
-		 System.out.println(d1);*/
-		 
+		//d1.mergeSort();
+		//System.out.println("Merge: \n" + d1);
+			
 
 	}
+
 }
