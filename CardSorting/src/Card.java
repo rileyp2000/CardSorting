@@ -17,8 +17,6 @@ public class Card implements Comparable<Card> {
 		suit = "Spades";
 	}
 
-	// TODO write comments for constructors
-
 	/**
 	 * Constructor for int suit and int rank
 	 * 
@@ -275,7 +273,6 @@ public class Card implements Comparable<Card> {
 			return 0;
 		}
 	}
-
 
 	@Override
 	public String toString() {

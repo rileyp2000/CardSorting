@@ -4,14 +4,7 @@
  * @author Sean Gibbons
  *
  */
-/**
- * @author gibbonss
- *
- */
-/**
- * @author gibbonss
- *
- */
+
 public class Deck {
 	private Card[] cards;
 	private int topCard;// keeps track of the card currently in the last position
