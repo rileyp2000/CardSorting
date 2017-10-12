@@ -15,6 +15,23 @@ public class Deck {
 	 * The no-args constructor which will automatically make a standard 52 card Deck
 	 */
 	public Deck() {
+		resetDeck();
+	}
+
+	/**
+	 * Constructor with one arg which creates and then shuffles the Deck
+	 */
+
+	public Deck(boolean sort) {
+		this.resetDeck();
+		if (!sort)
+			this.shuffle();
+	}
+
+	/**
+	 * Creates a standard 52 card deck
+	 */
+	public void resetDeck() {
 		cards = new Card[DeckConstants.TOTAL_CARDS];
 		topCard = cards.length - 1;
 		int r = 1;
@@ -36,9 +53,25 @@ public class Deck {
 	 * 
 	 * @return whether the object is sorted
 	 */
-	public boolean isSorted() {
+	public boolean getSorted() {
 
 		return sorted;
+	}
+
+	public Card[] getCards() {
+		return cards;
+	}
+
+	public void setCards(Card[] cards) {
+		this.cards = cards;
+	}
+
+	public void setTopCard(int topCard) {
+		this.topCard = topCard;
+	}
+
+	public void setSorted(boolean sorted) {
+		this.sorted = sorted;
 	}
 
 	/**
@@ -58,7 +91,7 @@ public class Deck {
 	public void shuffle() {
 		sorted = false;
 		for (int i = topCard - 1; i > 0; i--) {
-			int randomPos = (int) (Math.random() * topCard) + 1;
+			int randomPos = (int) (Math.random() * topCard);
 			Card temp = cards[i];
 			cards[i] = cards[randomPos];
 			cards[randomPos] = temp;
@@ -101,7 +134,8 @@ public class Deck {
 	}
 
 	/**
-	 * Selects a Card from a random position in the deck and removes it
+	 * Selects a Card from a random position in the deck and removes it, collapsing
+	 * the Deck around the new empty space
 	 * 
 	 * @return the randomly chosen Card
 	 */
@@ -111,8 +145,8 @@ public class Deck {
 	}
 
 	/**
-	 * A helper method which removes a Card from a given position, used in pick()
-	 * and deal()
+	 * A helper method which removes a Card from a given position and collapses the
+	 * Deck around the new empty space, used in pick() and deal()
 	 * 
 	 * @param pos
 	 *            the position of the card to be removed in the current deck
@@ -165,29 +199,16 @@ public class Deck {
 	 * Sorts the array of Cards using the selectionSort algorithm
 	 */
 	public void selectionSort() {
-		sSort(cards);
 		sorted = true;
-	}
-
-	/**
-	 * A sorting algorithm that sorts the cards in ascending order. Created with
-	 * help from "Java Methods: Object-Oriented Programming and Data Structures, 3rd
-	 * AP Edition"
-	 * 
-	 * 
-	 * @param c
-	 *            the array of cards to be sorted
-	 */
-	public void sSort(Card[] c) {
-		for (int n = c.length; n > 1; n--) {
+		for (int n = cards.length; n > 1; n--) {
 			int iMax = 0;
 			for (int i = 1; i < n; i++) {
-				if (c[i].compareTo(c[iMax]) == -1)
+				if (cards[i].compareTo(cards[iMax]) == -1)
 					iMax = i;
 			}
-			Card aTemp = c[iMax];
-			c[iMax] = c[n - 1];
-			c[n - 1] = aTemp;
+			Card aTemp = cards[iMax];
+			cards[iMax] = cards[n - 1];
+			cards[n - 1] = aTemp;
 
 		}
 	}
@@ -199,23 +220,9 @@ public class Deck {
 	 * Sorts the cards using the mergeSort algorithm
 	 */
 	public void mergeSort() {
-		mSort(cards);
-		sorted = true;
-	}
-
-	/**
-	 * A sorting algorithm that sorts the cards in ascending order. Created with
-	 * help from "Java Methods: Object-Oriented Programming and Data Structures, 3rd
-	 * AP Edition"
-	 * 
-	 * 
-	 * @param c
-	 *            the array of cards to be sorted
-	 */
-	private void mSort(Card[] c) {
-		int n = c.length;
+		int n = cards.length;
 		temp = new Card[n];
-		recursiveSort(c, 0, n - 1);
+		recursiveSort(cards, 0, n - 1);
 	}
 
 	/**
