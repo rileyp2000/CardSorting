@@ -1,9 +1,7 @@
 /**
+ * A class of constants to be used in Deck and Card classes
  * 
- */
-
-/**
- * @author srgib
+ * @author Sean Gibbons
  *
  */
 public class DeckConstants {

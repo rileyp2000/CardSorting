@@ -58,20 +58,13 @@ public class Deck {
 		return sorted;
 	}
 
+	/**
+	 * Returns the array of Cards
+	 * 
+	 * @return the array of Cards
+	 */
 	public Card[] getCards() {
 		return cards;
-	}
-
-	public void setCards(Card[] cards) {
-		this.cards = cards;
-	}
-
-	public void setTopCard(int topCard) {
-		this.topCard = topCard;
-	}
-
-	public void setSorted(boolean sorted) {
-		this.sorted = sorted;
 	}
 
 	/**
@@ -150,7 +143,7 @@ public class Deck {
 	 * 
 	 * @param pos
 	 *            the position of the card to be removed in the current deck
-	 * @return
+	 * @return the Card that has been removed
 	 */
 	private Card removeCard(int pos) {
 		Card select = cards[pos];
