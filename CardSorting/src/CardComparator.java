@@ -7,11 +7,11 @@ import java.util.Comparator;
  * @author Sean Gibbons
  *
  */
-public class RankComparator implements Comparator<Card> {
+public class CardComparator implements Comparator<Card> {
 	// describes the order the cards are to be sorted
 	private boolean ascending;
 
-	public RankComparator() {
+	public CardComparator() {
 		ascending = true;
 	}
 

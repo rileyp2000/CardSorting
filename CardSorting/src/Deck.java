@@ -27,6 +27,10 @@ public class Deck {
 		if (!sort)
 			this.shuffle();
 	}
+	
+	public Deck(Deck o) {
+		
+	}
 
 	/**
 	 * Creates a standard 52 card deck
@@ -193,15 +197,14 @@ public class Deck {
 	 */
 	public void selectionSort() {
 		sorted = true;
-		for (int n = cards.length; n > 1; n--) {
-			int iMax = 0;
-			for (int i = 1; i < n; i++) {
-				if (cards[i].compareTo(cards[iMax]) == -1)
-					iMax = i;
+		for (int n = topCard; n > 0; n--) {
+			for (int i = 0; i < n; i++) {
+				if (cards[i].compareTo(cards[n]) < 0) {
+					Card aTemp = cards[i];
+					cards[i] = cards[n];
+					cards[n] = aTemp;
+				}
 			}
-			Card aTemp = cards[iMax];
-			cards[iMax] = cards[n - 1];
-			cards[n - 1] = aTemp;
 
 		}
 	}

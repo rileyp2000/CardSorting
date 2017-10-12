@@ -11,8 +11,10 @@ public class DeckTester {
 		Deck d1 = new Deck();
 		Deck d2 = new Deck(false);
 		out.println("Two Decks have been created, d1 and d2");
-		out.println("d1 should be sorted: " + d1);
-		out.println("d2 should be random: " + d2);
+		out.println("d1 should be sorted: "); 
+		out.println(d1);
+		out.println("d2 should be random: ");
+		out.println(d2);
 
 		out.println();
 		out.println();
@@ -20,7 +22,8 @@ public class DeckTester {
 		// Tests mergeSort
 		out.println("Now testing mergeSort on d2");
 		d2.mergeSort();
-		out.println("d2 should now be sorted: " + d2);
+		out.println("d2 should now be sorted: ");
+		out.println(d2);
 
 		out.println();
 		out.println();
@@ -28,9 +31,11 @@ public class DeckTester {
 		// Tests selectionSort
 		out.println("Now testing selectionSort on d1");
 		d1.shuffle();
-		out.println("d1 should now be random: " + d1);
+		out.println("d1 should now be random: ");
+		out.println(d1);
 		d1.selectionSort();
-		out.println("d1 should now be sorted: " + d1);
+		out.println("d1 should now be sorted: ");
+		out.println(d1);
 
 		out.println();
 		out.println();
@@ -51,7 +56,8 @@ public class DeckTester {
 		Deck[] warGame = d1.deal(2, 25);
 		out.println(warGame[0]);
 		out.println(warGame[1]);
-		out.println("Here are the remaining cards in d1 " + d1);
+		out.println("Here are the remaining cards in d1 ");
+		out.println(d1);
 
 		out.close();
 	}
