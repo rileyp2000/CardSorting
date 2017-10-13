@@ -27,9 +27,9 @@ public class Deck {
 		if (!sort)
 			this.shuffle();
 	}
-	
+
 	public Deck(Deck o) {
-		
+
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class Deck {
 		if (topCard == DeckConstants.TOTAL_CARDS - 1) { // Prints in four columns if the Deck is full
 			for (int i = 0; i < topCard / DeckConstants.NUM_OF_SUITS + 1; i++) {
 				result = result + cards[i];
-				for (int j = 0; j < topCard; j += DeckConstants.RANK_PER_SUIT) {
+				for (int j = DeckConstants.RANK_PER_SUIT; j < topCard - 1; j += DeckConstants.RANK_PER_SUIT) {
 					result = result + "\t" + cards[i + j];
 				}
 
@@ -113,8 +113,8 @@ public class Deck {
 		}
 
 		else
-			for (Card c : cards) { // else prints in one column
-				result = result + c + "\n";
+			for (int i = 0; i < topCard; i++) { // else prints in one column
+				result = result + cards[i] + "\n";
 
 			}
 

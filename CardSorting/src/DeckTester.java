@@ -11,7 +11,7 @@ public class DeckTester {
 		Deck d1 = new Deck();
 		Deck d2 = new Deck(false);
 		out.println("Two Decks have been created, d1 and d2");
-		out.println("d1 should be sorted: "); 
+		out.println("d1 should be sorted: ");
 		out.println(d1);
 		out.println("d2 should be random: ");
 		out.println(d2);
@@ -41,7 +41,7 @@ public class DeckTester {
 		out.println();
 
 		// Tests pick
-		out.println("Noew testing pick on d1");
+		out.println("Now testing pick on d1");
 		out.println(d1.pick());
 		out.println(d1.pick());
 		out.println(d1.pick());
@@ -54,10 +54,21 @@ public class DeckTester {
 		d1.resetDeck();
 		d1.shuffle();
 		Deck[] warGame = d1.deal(2, 25);
+		out.println("Now dealing two hands of 25 cards each");
 		out.println(warGame[0]);
 		out.println(warGame[1]);
 		out.println("Here are the remaining cards in d1 ");
 		out.println(d1);
+
+		// Tests mergeSort and selectionSort on the smaller deal hands
+		out.println("Here is the first hand sorted using mergeSort");
+		warGame[0].mergeSort();
+		out.println(warGame[0]);
+
+		out.println();
+		out.println("Here is the second hand sorted using selectionSort");
+		warGame[1].selectionSort();
+		out.println(warGame[1]);
 
 		out.close();
 	}
