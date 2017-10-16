@@ -21,7 +21,7 @@ public class DeckTester {
 
 		// Tests mergeSort
 		out.println("Now testing mergeSort on d2");
-		d2.mergeSort();
+		// d2.mergeSort();
 		out.println("d2 should now be sorted: ");
 		out.println(d2);
 
@@ -62,13 +62,20 @@ public class DeckTester {
 
 		// Tests mergeSort and selectionSort on the smaller deal hands
 		out.println("Here is the first hand sorted using mergeSort");
-		warGame[0].mergeSort();
+		// warGame[0].mergeSort();
 		out.println(warGame[0]);
 
 		out.println();
 		out.println("Here is the second hand sorted using selectionSort");
 		warGame[1].selectionSort();
 		out.println(warGame[1]);
+
+		// Tests equals
+		out.println("Resetting d1");
+		d1.resetDeck();
+		out.println("Now testing .equals");
+		out.println("Does d1 equal d2? " + d1.equals(d2));
+		out.println("Do the two hands of 25 cards each equal each other? " + warGame[0].equals(warGame[1]));
 
 		out.close();
 	}

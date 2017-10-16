@@ -17,7 +17,13 @@ public class CardComparator implements Comparator<Card> {
 
 	@Override
 	public int compare(Card o1, Card o2) {
-		int difference = o1.getRank() - o2.getRank();
+		int difference;
+		// First compares based on suit but if suits equal then compares based on rank
+
+		if (o1.getSuitInt() - o2.getSuitInt() == 0)
+			difference = o1.getRank() - o2.getRank();
+		else
+			difference = o1.getSuitInt() - o2.getSuitInt();
 		if (ascending)
 			return difference;
 		else

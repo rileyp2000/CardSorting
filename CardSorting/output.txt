@@ -15,55 +15,55 @@ Queen  of Clubs 	Queen  of Diamonds	Queen  of Hearts	Queen  of Spades
 King   of Clubs 	King   of Diamonds	King   of Hearts	King   of Spades
 
 d2 should be random: 
-Ace    of Clubs 	King   of Clubs 	Nine   of Diamonds	King   of Hearts
-Five   of Spades	Ten    of Clubs 	Eight  of Clubs 	Five   of Hearts
-Eight  of Hearts	Queen  of Spades	Two    of Clubs 	Ten    of Hearts
-Jack   of Diamonds	Three  of Clubs 	Six    of Spades	Three  of Spades
-Four   of Clubs 	Jack   of Hearts	Ace    of Hearts	Five   of Clubs 
-Eight  of Spades	Queen  of Clubs 	Nine   of Clubs 	Three  of Hearts
-Four   of Spades	Nine   of Spades	Jack   of Spades	Four   of Hearts
-Nine   of Hearts	Seven  of Spades	Six    of Diamonds	Ten    of Spades
-Two    of Diamonds	Queen  of Diamonds	Ace    of Diamonds	Eight  of Diamonds
-Five   of Diamonds	Queen  of Hearts	Seven  of Hearts	Three  of Diamonds
-Ace    of Spades	Six    of Clubs 	Four   of Diamonds	King   of Diamonds
-Jack   of Clubs 	Seven  of Clubs 	Ten    of Diamonds	Two    of Spades
-Six    of Hearts	Seven  of Diamonds	Two    of Hearts	King   of Spades
+King   of Hearts	Nine   of Diamonds	Nine   of Spades	Seven  of Spades
+Eight  of Spades	Queen  of Hearts	Six    of Diamonds	Five   of Diamonds
+Three  of Diamonds	Queen  of Diamonds	Seven  of Hearts	Eight  of Clubs 
+Jack   of Spades	Six    of Spades	Queen  of Clubs 	Nine   of Clubs 
+Ten    of Diamonds	Ace    of Spades	Five   of Clubs 	Ten    of Spades
+Five   of Spades	Three  of Clubs 	Seven  of Diamonds	Two    of Clubs 
+Eight  of Diamonds	Ace    of Diamonds	Six    of Hearts	Five   of Hearts
+Queen  of Spades	King   of Diamonds	Four   of Spades	Nine   of Hearts
+Ace    of Hearts	Seven  of Clubs 	Six    of Clubs 	Four   of Diamonds
+Two    of Diamonds	Eight  of Hearts	Two    of Spades	Ten    of Hearts
+Jack   of Hearts	Jack   of Clubs 	Three  of Hearts	Jack   of Diamonds
+Ace    of Clubs 	King   of Clubs 	Four   of Hearts	Four   of Clubs 
+Three  of Spades	Two    of Hearts	Ten    of Clubs 	King   of Spades
 
 
 
 Now testing mergeSort on d2
 d2 should now be sorted: 
-Six    of Clubs 	Jack   of Hearts	Ten    of Spades	Queen  of Spades
-Seven  of Clubs 	Queen  of Hearts	Eight  of Diamonds	Three  of Clubs 
-Four   of Diamonds	Six    of Hearts	Three  of Spades	King   of Clubs 
-Ten    of Diamonds	Nine   of Hearts	Jack   of Spades	Ten    of Clubs 
-Six    of Diamonds	King   of Spades	Nine   of Clubs 	Ace    of Spades
-Ace    of Diamonds	Five   of Clubs 	Two    of Clubs 	Jack   of Clubs 
-Seven  of Diamonds	King   of Diamonds	Six    of Spades	Four   of Spades
-Five   of Diamonds	Three  of Hearts	Eight  of Clubs 	Four   of Clubs 
-Two    of Diamonds	Ten    of Hearts	Nine   of Diamonds	Eight  of Spades
-Four   of Hearts	King   of Hearts	Seven  of Spades	Ace    of Clubs 
-Ace    of Hearts	Five   of Hearts	Queen  of Diamonds	Jack   of Diamonds
-Two    of Hearts	Two    of Spades	Nine   of Spades	Eight  of Hearts
-Seven  of Hearts	Three  of Diamonds	Queen  of Clubs 	Five   of Spades
+King   of Hearts	Nine   of Diamonds	Nine   of Spades	Seven  of Spades
+Eight  of Spades	Queen  of Hearts	Six    of Diamonds	Five   of Diamonds
+Three  of Diamonds	Queen  of Diamonds	Seven  of Hearts	Eight  of Clubs 
+Jack   of Spades	Six    of Spades	Queen  of Clubs 	Nine   of Clubs 
+Ten    of Diamonds	Ace    of Spades	Five   of Clubs 	Ten    of Spades
+Five   of Spades	Three  of Clubs 	Seven  of Diamonds	Two    of Clubs 
+Eight  of Diamonds	Ace    of Diamonds	Six    of Hearts	Five   of Hearts
+Queen  of Spades	King   of Diamonds	Four   of Spades	Nine   of Hearts
+Ace    of Hearts	Seven  of Clubs 	Six    of Clubs 	Four   of Diamonds
+Two    of Diamonds	Eight  of Hearts	Two    of Spades	Ten    of Hearts
+Jack   of Hearts	Jack   of Clubs 	Three  of Hearts	Jack   of Diamonds
+Ace    of Clubs 	King   of Clubs 	Four   of Hearts	Four   of Clubs 
+Three  of Spades	Two    of Hearts	Ten    of Clubs 	King   of Spades
 
 
 
 Now testing selectionSort on d1
 d1 should now be random: 
-Six    of Spades	Ace    of Clubs 	Queen  of Diamonds	Three  of Hearts
-Queen  of Clubs 	Nine   of Hearts	Queen  of Hearts	Three  of Diamonds
-Ace    of Hearts	Two    of Diamonds	Three  of Clubs 	Queen  of Spades
-Seven  of Clubs 	Ten    of Clubs 	Ten    of Diamonds	Six    of Clubs 
-Eight  of Clubs 	King   of Clubs 	Jack   of Hearts	King   of Diamonds
-Nine   of Clubs 	Jack   of Clubs 	King   of Hearts	Five   of Diamonds
-Seven  of Hearts	Six    of Diamonds	Four   of Clubs 	Three  of Spades
-Nine   of Spades	Five   of Clubs 	Seven  of Spades	Five   of Hearts
-Five   of Spades	Jack   of Diamonds	Eight  of Spades	Four   of Diamonds
-Jack   of Spades	Two    of Spades	Four   of Spades	Two    of Clubs 
-Two    of Hearts	Ace    of Spades	Four   of Hearts	Eight  of Hearts
-Ace    of Diamonds	Eight  of Diamonds	Ten    of Hearts	Nine   of Diamonds
-Six    of Hearts	Seven  of Diamonds	Ten    of Spades	King   of Spades
+Nine   of Spades	Two    of Clubs 	Ten    of Hearts	Seven  of Diamonds
+Ace    of Spades	Eight  of Spades	Two    of Diamonds	Ace    of Diamonds
+Four   of Clubs 	King   of Clubs 	Three  of Spades	Three  of Clubs 
+Seven  of Hearts	Jack   of Diamonds	Three  of Hearts	Six    of Spades
+Six    of Clubs 	Queen  of Clubs 	Ten    of Diamonds	King   of Hearts
+Ten    of Clubs 	Four   of Spades	Three  of Diamonds	Seven  of Spades
+Four   of Hearts	Eight  of Clubs 	Queen  of Diamonds	Queen  of Hearts
+Nine   of Clubs 	Eight  of Hearts	Jack   of Clubs 	Seven  of Clubs 
+Nine   of Hearts	Five   of Clubs 	Six    of Diamonds	Five   of Diamonds
+Ace    of Clubs 	Two    of Spades	Nine   of Diamonds	Ten    of Spades
+Five   of Hearts	Five   of Spades	King   of Diamonds	Six    of Hearts
+Ace    of Hearts	Queen  of Spades	Jack   of Hearts	Four   of Diamonds
+Jack   of Spades	Eight  of Diamonds	Two    of Hearts	King   of Spades
 
 d1 should now be sorted: 
 King   of Spades	King   of Hearts	King   of Diamonds	King   of Clubs 
@@ -83,116 +83,120 @@ Ace    of Spades	Ace    of Hearts	Ace    of Diamonds	Ace    of Clubs
 
 
 Now testing pick on d1
-Queen  of Diamonds
-Seven  of Spades
-Seven  of Clubs 
+Six    of Hearts
+Two    of Diamonds
+Five   of Diamonds
 
 
 Now testing deal on d1
 Now dealing two hands of 25 cards each
 King   of Spades
-Ten    of Clubs 
-Nine   of Hearts
-Two    of Diamonds
-Ace    of Diamonds
-Jack   of Clubs 
-Queen  of Clubs 
-Four   of Clubs 
-Eight  of Spades
-Jack   of Hearts
-Five   of Spades
-Seven  of Hearts
-Eight  of Diamonds
-Nine   of Diamonds
-Four   of Diamonds
-Five   of Clubs 
-Six    of Spades
-Three  of Clubs 
-Six    of Diamonds
-Eight  of Clubs 
-Three  of Spades
 Ten    of Spades
-Four   of Hearts
-Five   of Diamonds
-
-Eight  of Hearts
-Two    of Clubs 
-Ten    of Diamonds
-Ten    of Hearts
-Nine   of Spades
-Three  of Diamonds
-Jack   of Spades
-Seven  of Spades
-Four   of Spades
-Five   of Hearts
-King   of Clubs 
-Two    of Spades
-Six    of Hearts
-Seven  of Diamonds
-Ace    of Hearts
-Queen  of Hearts
-Seven  of Clubs 
-Six    of Clubs 
-Two    of Hearts
-King   of Hearts
-Ace    of Clubs 
-Queen  of Spades
 Ace    of Spades
+King   of Diamonds
+Three  of Spades
+Queen  of Diamonds
+Queen  of Clubs 
+Two    of Clubs 
+Eight  of Clubs 
+Ten    of Clubs 
+Seven  of Hearts
+Seven  of Diamonds
+King   of Clubs 
+Four   of Hearts
+Four   of Clubs 
+Nine   of Diamonds
+Seven  of Spades
+Ace    of Hearts
+Eight  of Diamonds
+Eight  of Spades
+Nine   of Clubs 
+Six    of Hearts
 Jack   of Diamonds
+Two    of Hearts
+
+Ten    of Hearts
+Eight  of Hearts
+Seven  of Clubs 
+Queen  of Spades
+Five   of Diamonds
+Ten    of Diamonds
+Four   of Spades
+Nine   of Spades
+Six    of Clubs 
+Ace    of Diamonds
+Jack   of Spades
+Nine   of Hearts
+Two    of Spades
+Jack   of Hearts
+Queen  of Hearts
+Five   of Hearts
+King   of Hearts
+Five   of Spades
+Three  of Hearts
+Jack   of Clubs 
+Six    of Diamonds
+Three  of Diamonds
+Three  of Clubs 
+Two    of Diamonds
 
 Here are the remaining cards in d1 
-Three  of Hearts
+Ace    of Clubs 
 
-Here is the first hand sorted
-Five   of Clubs 
-Jack   of Clubs 
-Queen  of Clubs 
-King   of Diamonds
-Five   of Diamonds
-Six    of Diamonds
-Eight  of Diamonds
-Ace    of Diamonds
-Two    of Diamonds
-Four   of Hearts
-Seven  of Hearts
-Jack   of Hearts
-Nine   of Hearts
+Here is the first hand sorted using mergeSort
+King   of Spades
 Ten    of Spades
-Eight  of Clubs 
+Ace    of Spades
+King   of Diamonds
 Three  of Spades
-Five   of Spades
-Six    of Spades
-Three  of Clubs 
+Queen  of Diamonds
+Queen  of Clubs 
+Two    of Clubs 
+Eight  of Clubs 
+Ten    of Clubs 
+Seven  of Hearts
+Seven  of Diamonds
+King   of Clubs 
+Four   of Hearts
 Four   of Clubs 
 Nine   of Diamonds
-Four   of Diamonds
+Seven  of Spades
+Ace    of Hearts
+Eight  of Diamonds
 Eight  of Spades
-King   of Spades
+Nine   of Clubs 
+Six    of Hearts
+Jack   of Diamonds
+Two    of Hearts
 
 
-Here is the second hand sorted
+Here is the second hand sorted using selectionSort
 Queen  of Spades
 Jack   of Spades
 Nine   of Spades
-Seven  of Spades
+Six    of Spades
+Five   of Spades
 Four   of Spades
 Two    of Spades
-Ace    of Spades
 King   of Hearts
 Queen  of Hearts
+Jack   of Hearts
 Ten    of Hearts
+Nine   of Hearts
 Eight  of Hearts
-Six    of Hearts
 Five   of Hearts
-Two    of Hearts
-Ace    of Hearts
-Jack   of Diamonds
+Three  of Hearts
 Ten    of Diamonds
-Seven  of Diamonds
+Six    of Diamonds
+Five   of Diamonds
 Three  of Diamonds
-King   of Clubs 
-Nine   of Clubs 
+Two    of Diamonds
+Ace    of Diamonds
+Jack   of Clubs 
 Seven  of Clubs 
 Six    of Clubs 
-Two    of Clubs 
 
+Resetting d1
+Now testing .equals
+Does d1 equal d2? true
+Do the two hands of 25 cards each equal each other? false

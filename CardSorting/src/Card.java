@@ -134,7 +134,7 @@ public class Card implements Comparable<Card> {
 
 	@Override
 	public int compareTo(Card o) {
-
+		// First compares based on suit but if suits equal then compares based on rank
 		if (getSuitInt() - o.getSuitInt() == 0)
 			return this.getRank() - o.getRank();
 		else

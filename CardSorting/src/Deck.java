@@ -9,7 +9,7 @@ public class Deck {
 	private Card[] cards;
 	private int topCard;// keeps track of the card currently in the last position
 	private boolean sorted;
-	private Card[] temp;
+	private static Card[] temp;
 
 	/**
 	 * The no-args constructor which will automatically make a standard 52 card Deck
@@ -124,7 +124,14 @@ public class Deck {
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Deck) {
-			return this.toString().equals(((Deck) o).toString());
+			Deck t1 = this;
+			t1.selectionSort();
+			;
+			Deck t2 = (Deck) o;
+			t2.selectionSort();
+			// Sorts the decks to be compared to ensure decks are equal even if not in the
+			// same order
+			return t1.toString().equals((t2).toString());
 		} else
 			return false;
 
@@ -188,9 +195,9 @@ public class Deck {
 		return hands;
 	}
 
-	/***********************************************************
+	/********************************************************
 	 * SELECTION SORT
-	 ************/
+	 ********************************************************/
 
 	/**
 	 * Sorts the array of Cards using the selectionSort algorithm
@@ -211,10 +218,12 @@ public class Deck {
 
 	/**************************************************
 	 * MERGE SORT
-	 ************************/
+	 **************************************************/
 	/**
-	 * Sorts the cards using the mergeSort algorithm
+	 * Sorts the cards of a given Deck using the mergeSort algorithm
+	 * 
 	 */
+
 	public void mergeSort() {
 		int n = cards.length;
 		temp = new Card[n];
@@ -233,19 +242,20 @@ public class Deck {
 	 * @param end
 	 *            the position of the last card to be sorted
 	 */
-	private void recursiveSort(Card[] c, int start, int end) {
-		if (end - start < 2) {
-			if (end > start && c[end].compareTo(c[start]) == -1) {
-
-				Card t = c[end];
-				c[end] = c[start];
-				c[start] = t;
+	private void recursiveSort(Card[] c, int from, int to) {
+		if (to - from < 2) // Base case: 1 or 2 elements
+		{
+			if (to > from && c[to].compareTo(c[from]) <= -1) {
+				Card cTemp = c[to];
+				c[to] = c[from];
+				c[from] = cTemp;
 			}
-		} else {
-			int middle = (start + end) / 2;
-			recursiveSort(c, start, middle);
-			recursiveSort(c, middle + 1, end);
-			merge(c, start, middle, end);
+		} else // Recursive case
+		{
+			int middle = (from + to) / 2;
+			recursiveSort(c, from, middle);
+			recursiveSort(c, middle + 1, to);
+			merge(c, from, middle, to);
 		}
 	}
 
@@ -262,29 +272,38 @@ public class Deck {
 	 * @param end
 	 *            the position of the last card
 	 */
-	private void merge(Card[] c, int start, int middle, int end) {
-		int i = start;
-		int j = middle + 1;
-		int k = start;
+	private void merge(Card[] c, int from, int middle, int to) {
+		int i = from, j = middle + 1, k = from;
 
-		while (i <= middle && j <= end) {
-			if (c[i].compareTo(c[j]) == -1) {
-				temp[k] = c[i++];
+		// While both arrays have elements left unprocessed:
+		while (i <= middle && j <= to) {
+			if (c[i].compareTo(c[j]) <= -1) {
+				temp[k++] = c[i++];
+				i++;
 			} else {
-				temp[k] = c[j++];
+				temp[k] = c[j];
+				j++;
 			}
 			k++;
 		}
 
+		// Copy the tail of the first half, if any, into temp:
 		while (i <= middle) {
 			temp[k++] = c[i++];
+			i++;
+			k++;
 		}
 
-		while (j <= end) {
+		// Copy the tail of the second half, if any, into temp:
+		while (j <= to) {
 			temp[k++] = c[j++];
+			j++;
+			k++;
 		}
 
-		for (k = start; k <= end; k++)
+		// Copy temp back into cards
+		for (k = from; k <= to; k++)
 			c[k] = temp[k];
 	}
+
 }
