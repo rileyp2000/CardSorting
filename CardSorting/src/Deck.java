@@ -224,39 +224,14 @@ public class Deck {
 	 * 
 	 */
 
-	public void mergeSort() {
-		int n = cards.length;
-		temp = new Card[n];
-		recursiveSort(cards, 0, n - 1);
-	}
-
-	/**
-	 * A recursive method which divides the array into smaller arrays until they are
-	 * either 1 or 2 elements in length. These elements are swapped as appropriate
-	 * and then merged back into the larger whole.
-	 * 
-	 * @param c
-	 *            the array of cards to be sorted
-	 * @param start
-	 *            the position of the first card to be sorted
-	 * @param end
-	 *            the position of the last card to be sorted
-	 */
-	private void recursiveSort(Card[] c, int from, int to) {
-		if (to - from < 2) // Base case: 1 or 2 elements
-		{
-			if (to > from && c[to].compareTo(c[from]) <= -1) {
-				Card cTemp = c[to];
-				c[to] = c[from];
-				c[from] = cTemp;
-			}
-		} else // Recursive case
-		{
-			int middle = (from + to) / 2;
-			recursiveSort(c, from, middle);
-			recursiveSort(c, middle + 1, to);
-			merge(c, from, middle, to);
+	public static void mergeSort(Deck d1) {
+		int n = d1.cards.length;
+		temp = new Card[d1.getTopCard() + 1];
+		for (int i = 0; i < temp.length; i++) {
+			temp[i] = d1.cards[i];
 		}
+		recursiveSort(temp, 0, n - 1);
+		d1.cards = temp;
 	}
 
 	/**
@@ -272,16 +247,96 @@ public class Deck {
 	 * @param end
 	 *            the position of the last card
 	 */
-	private void merge(Card[] c, int from, int middle, int to) {
+
+	private static void merge(Card arr[], int l, int m, int r) {
+		int n1 = m - l + 1;
+		int n2 = r - m;
+
+		Card first[] = new Card[n1];
+		Card second[] = new Card[n2];
+
+		for (int i = 0; i < n1; ++i)
+			first[i] = arr[l + i];
+		for (int j = 0; j < n2; ++j)
+			second[j] = arr[m + 1 + j];
+
+		int i = 0, j = 0;
+
+		int k = l;
+		while (i < n1 && j < n2) {
+			if (first[i].compareTo(second[j]) == -1) {
+				arr[k] = first[i];
+				i++;
+			} else {
+				arr[k] = second[j];
+				j++;
+			}
+			k++;
+		}
+
+		while (i < n1) {
+			arr[k] = first[i];
+			i++;
+			k++;
+		}
+
+		while (j < n2) {
+			arr[k] = second[j];
+			j++;
+			k++;
+		}
+	}
+
+	// Sorts a[0], ..., a[a.length-1] in ascending order
+	// using the Mergesort algorithm.
+	public static void sort(double[] a) {
+		int n = a.length;
+		temp = new double[n];
+		recursiveSort(a, 0, n - 1);
+	}
+
+	/**
+	 * A recursive method which divides the array into smaller arrays until they are
+	 * either 1 or 2 elements in length. These elements are swapped as appropriate
+	 * and then merged back into the larger whole.
+	 * 
+	 * @param c
+	 *            the array of cards to be sorted
+	 * @param start
+	 *            the position of the first card to be sorted
+	 * @param end
+	 *            the position of the last card to be sorted
+	 */
+	private static void recursiveSort(Card[] a, int from, int to) {
+		if (to - from < 2) // Base case: 1 or 2 elements
+		{
+			if (to > from && a[to] < a[from]) {
+				// swap a[to] and a[from]
+				double aTemp = a[to];
+				a[to] = a[from];
+				a[from] = aTemp;
+			}
+		} else // Recursive case
+		{
+			int middle = (from + to) / 2;
+			recursiveSort(a, from, middle);
+			recursiveSort(a, middle + 1, to);
+			merge(a, from, middle, to);
+		}
+	}
+
+	// Merges a[from] ... a[middle] and a[middle+1] ... a[to]
+	// into one sorted array a[from] ... a[to]
+	private static void merge(double[] a, int from, int middle, int to) {
 		int i = from, j = middle + 1, k = from;
 
 		// While both arrays have elements left unprocessed:
 		while (i <= middle && j <= to) {
-			if (c[i].compareTo(c[j]) <= -1) {
-				temp[k++] = c[i++];
+			if (a[i] < a[j]) {
+				temp[k] = a[i]; // Or simply temp[k] = a[i++];
 				i++;
 			} else {
-				temp[k] = c[j];
+				temp[k] = a[j];
 				j++;
 			}
 			k++;
@@ -289,21 +344,21 @@ public class Deck {
 
 		// Copy the tail of the first half, if any, into temp:
 		while (i <= middle) {
-			temp[k++] = c[i++];
+			temp[k] = a[i]; // Or simply temp[k++] = a[i++]
 			i++;
 			k++;
 		}
 
 		// Copy the tail of the second half, if any, into temp:
 		while (j <= to) {
-			temp[k++] = c[j++];
+			temp[k] = a[j]; // Or simply temp[k++] = a[j++]
 			j++;
 			k++;
 		}
 
-		// Copy temp back into cards
+		// Copy temp back into a
 		for (k = from; k <= to; k++)
-			c[k] = temp[k];
+			a[k] = temp[k];
 	}
 
 }

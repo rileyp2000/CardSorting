@@ -21,7 +21,7 @@ public class DeckTester {
 
 		// Tests mergeSort
 		out.println("Now testing mergeSort on d2");
-		// d2.mergeSort();
+		Deck.mergeSort(d2);
 		out.println("d2 should now be sorted: ");
 		out.println(d2);
 
@@ -42,9 +42,11 @@ public class DeckTester {
 
 		// Tests pick
 		out.println("Now testing pick on d1");
-		out.println(d1.pick());
-		out.println(d1.pick());
-		out.println(d1.pick());
+		for (int i = 0; i < DeckConstants.TOTAL_CARDS - 1; i++) {
+			// Tests pick by removing and printing all the cards from d1
+			out.println(d1.pick());
+		}
+		out.println("Prints the remaining Cards in d1\n" + d1); // should be empty as all cards have been removed
 
 		out.println();
 		out.println();
@@ -52,6 +54,7 @@ public class DeckTester {
 		// Tests deal as well as other methods with the smaller decks made from deal
 		out.println("Now testing deal on d1");
 		d1.resetDeck();
+		out.println("Resetting d1 and shuffling...");
 		d1.shuffle();
 		Deck[] warGame = d1.deal(2, 25);
 		out.println("Now dealing two hands of 25 cards each");
@@ -62,7 +65,7 @@ public class DeckTester {
 
 		// Tests mergeSort and selectionSort on the smaller deal hands
 		out.println("Here is the first hand sorted using mergeSort");
-		// warGame[0].mergeSort();
+		Deck.mergeSort(warGame[0]);
 		out.println(warGame[0]);
 
 		out.println();
