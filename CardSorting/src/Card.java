@@ -74,6 +74,18 @@ public class Card implements Comparable<Card> {
 
 	}
 
+	/**
+	 * Copy constructor
+	 * 
+	 * @param o
+	 *            the other Card to be copied
+	 */
+	public Card(Card o) {
+		this.suit = o.getSuitInt();
+		this.rank = o.getRank();
+
+	}
+
 	/************ GETTERS ***********/
 	/**
 	 * Returns the rank

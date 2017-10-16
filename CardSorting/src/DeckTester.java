@@ -7,23 +7,27 @@ public class DeckTester {
 	public static void main(String[] args) {
 		PrintWriter out = outputFile("output.txt");
 
-		// Tests the two d1 constructors
+		// Tests the three Deck constructors
 		Deck d1 = new Deck();
 		Deck d2 = new Deck(false);
-		out.println("Two Decks have been created, d1 and d2");
+		Deck d3 = new Deck(d2);
+		out.println("Three Decks have been created, d1, d2, and d3");
 		out.println("d1 should be sorted: ");
 		out.println(d1);
 		out.println("d2 should be random: ");
 		out.println(d2);
-
+		d3.arraySort();
+		out.println("d3 has been sorted using Arrays.sort");
+		out.println(d3);
 		out.println();
 		out.println();
 
 		// Tests mergeSort
 		out.println("Now testing mergeSort on d2");
-		Deck.mergeSort(d2);
+		d2.mergeSort();
 		out.println("d2 should now be sorted: ");
 		out.println(d2);
+		out.println("Is d2 the exact same as the deck sorted with Arrays.sort? " + d2.exactEquals(d3));
 
 		out.println();
 		out.println();
@@ -36,13 +40,17 @@ public class DeckTester {
 		d1.selectionSort();
 		out.println("d1 should now be sorted: ");
 		out.println(d1);
+		out.println("Is d1 the exact same as the deck sorted with Arrays.sort? " + d2.exactEquals(d3));
 
 		out.println();
 		out.println();
 
 		// Tests pick
 		out.println("Now testing pick on d1");
-		for (int i = 0; i < DeckConstants.TOTAL_CARDS - 1; i++) {
+		out.println(d1.pick());
+		out.println("Prints the remaining Cards in d1\n" + d1); // should be almost full as only 1 card has been removed
+
+		for (int i = 0; i < DeckConstants.TOTAL_CARDS - 2; i++) {
 			// Tests pick by removing and printing all the cards from d1
 			out.println(d1.pick());
 		}
@@ -51,7 +59,7 @@ public class DeckTester {
 		out.println();
 		out.println();
 
-		// Tests deal as well as other methods with the smaller decks made from deal
+		// Tests deal
 		out.println("Now testing deal on d1");
 		d1.resetDeck();
 		out.println("Resetting d1 and shuffling...");
@@ -63,9 +71,9 @@ public class DeckTester {
 		out.println("Here are the remaining cards in d1 ");
 		out.println(d1);
 
-		// Tests mergeSort and selectionSort on the smaller deal hands
+		// Tests mergeSort and selectionSort on the smaller dealt hands
 		out.println("Here is the first hand sorted using mergeSort");
-		Deck.mergeSort(warGame[0]);
+		warGame[0].mergeSort();
 		out.println(warGame[0]);
 
 		out.println();

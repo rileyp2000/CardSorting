@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Represents a group of Card objects
  * 
@@ -28,7 +30,16 @@ public class Deck {
 			this.shuffle();
 	}
 
+	/**
+	 * Copy constructor
+	 * 
+	 * @param o
+	 *            the Deck to be copied
+	 */
 	public Deck(Deck o) {
+		this.cards = o.getCards();
+		this.topCard = o.getTopCard();
+		o.sorted = o.getSorted();
 
 	}
 
@@ -69,6 +80,37 @@ public class Deck {
 	 */
 	public Card[] getCards() {
 		return cards;
+	}
+
+	/*
+	 * Sets the cards of a deck
+	 */
+	public void setCards(Card[] c) {
+		cards = c;
+	}
+
+	/**
+	 * Gets the Card at a specific position in the Deck
+	 * 
+	 * @param i
+	 *            the index of the Card to check
+	 * @return the Card at the given position
+	 */
+	public Card getCard(int i) {
+		return cards[i];
+	}
+
+	/**
+	 * Sets the value of the Card at a given position to a given Card
+	 * 
+	 * @param i
+	 *            the index of the Card to change
+	 * @param c
+	 *            the Card to change
+	 */
+
+	public void setCard(int i, Card c) {
+		cards[i] = new Card(c);
 	}
 
 	/**
@@ -126,7 +168,6 @@ public class Deck {
 		if (o instanceof Deck) {
 			Deck t1 = this;
 			t1.selectionSort();
-			;
 			Deck t2 = (Deck) o;
 			t2.selectionSort();
 			// Sorts the decks to be compared to ensure decks are equal even if not in the
@@ -134,7 +175,22 @@ public class Deck {
 			return t1.toString().equals((t2).toString());
 		} else
 			return false;
+	}
 
+	/**
+	 * A more strict .equals method that requires the cards be in the same order
+	 * 
+	 * @param o
+	 *            the other Deck to be checked
+	 * @return whether the two Decks are exactly the same
+	 */
+	public boolean exactEquals(Object o) {
+		if (o instanceof Deck) {
+			Deck t1 = this;
+			Deck t2 = (Deck) o;
+			return t1.toString().equals((t2).toString());
+		} else
+			return false;
 	}
 
 	/**
@@ -206,7 +262,7 @@ public class Deck {
 		sorted = true;
 		for (int n = topCard; n > 0; n--) {
 			for (int i = 0; i < n; i++) {
-				if (cards[i].compareTo(cards[n]) < 0) {
+				if (cards[i].compareTo(cards[n]) > 0) {
 					Card aTemp = cards[i];
 					cards[i] = cards[n];
 					cards[n] = aTemp;
@@ -223,15 +279,17 @@ public class Deck {
 	 * Sorts the cards of a given Deck using the mergeSort algorithm
 	 * 
 	 */
+	public void mergeSort() {
+		Deck.sort(getCards());
 
-	public static void mergeSort(Deck d1) {
-		int n = d1.cards.length;
-		temp = new Card[d1.getTopCard() + 1];
-		for (int i = 0; i < temp.length; i++) {
-			temp[i] = d1.cards[i];
-		}
-		recursiveSort(temp, 0, n - 1);
-		d1.cards = temp;
+	}
+
+	// Sorts a[0], ..., a[a.length-1] in ascending order
+	// using the Mergesort algorithm.
+	private static void sort(Card[] a) {
+		int n = a.length;
+		temp = new Card[n];
+		recursiveSort(a, 0, n - 1);
 	}
 
 	/**
@@ -248,51 +306,38 @@ public class Deck {
 	 *            the position of the last card
 	 */
 
-	private static void merge(Card arr[], int l, int m, int r) {
-		int n1 = m - l + 1;
-		int n2 = r - m;
+	private static void merge(Card[] c, int from, int middle, int to) {
+		int i = from, j = middle + 1, k = from;
 
-		Card first[] = new Card[n1];
-		Card second[] = new Card[n2];
-
-		for (int i = 0; i < n1; ++i)
-			first[i] = arr[l + i];
-		for (int j = 0; j < n2; ++j)
-			second[j] = arr[m + 1 + j];
-
-		int i = 0, j = 0;
-
-		int k = l;
-		while (i < n1 && j < n2) {
-			if (first[i].compareTo(second[j]) == -1) {
-				arr[k] = first[i];
+		// While both arrays have elements left unprocessed:
+		while (i <= middle && j <= to) {
+			if (c[i].compareTo(c[j]) <= -1) {
+				temp[k] = c[i]; // Or simply temp[k] = a[i++];
 				i++;
 			} else {
-				arr[k] = second[j];
+				temp[k] = c[j];
 				j++;
 			}
 			k++;
 		}
 
-		while (i < n1) {
-			arr[k] = first[i];
+		// Copy the tail of the first half, if any, into temp:
+		while (i <= middle) {
+			temp[k] = c[i]; // Or simply temp[k++] = a[i++]
 			i++;
 			k++;
 		}
 
-		while (j < n2) {
-			arr[k] = second[j];
+		// Copy the tail of the second half, if any, into temp:
+		while (j <= to) {
+			temp[k] = c[j]; // Or simply temp[k++] = a[j++]
 			j++;
 			k++;
 		}
-	}
 
-	// Sorts a[0], ..., a[a.length-1] in ascending order
-	// using the Mergesort algorithm.
-	public static void sort(double[] a) {
-		int n = a.length;
-		temp = new double[n];
-		recursiveSort(a, 0, n - 1);
+		// Copy temp back into a
+		for (k = from; k <= to; k++)
+			c[k] = temp[k];
 	}
 
 	/**
@@ -307,58 +352,29 @@ public class Deck {
 	 * @param end
 	 *            the position of the last card to be sorted
 	 */
-	private static void recursiveSort(Card[] a, int from, int to) {
+	private static void recursiveSort(Card[] c, int from, int to) {
 		if (to - from < 2) // Base case: 1 or 2 elements
 		{
-			if (to > from && a[to] < a[from]) {
+			if (to > from && c[to].compareTo(c[from]) <= -1) {
 				// swap a[to] and a[from]
-				double aTemp = a[to];
-				a[to] = a[from];
-				a[from] = aTemp;
+				Card aTemp = c[to];
+				c[to] = c[from];
+				c[from] = aTemp;
 			}
 		} else // Recursive case
 		{
 			int middle = (from + to) / 2;
-			recursiveSort(a, from, middle);
-			recursiveSort(a, middle + 1, to);
-			merge(a, from, middle, to);
+			recursiveSort(c, from, middle);
+			recursiveSort(c, middle + 1, to);
+			merge(c, from, middle, to);
 		}
 	}
 
-	// Merges a[from] ... a[middle] and a[middle+1] ... a[to]
-	// into one sorted array a[from] ... a[to]
-	private static void merge(double[] a, int from, int middle, int to) {
-		int i = from, j = middle + 1, k = from;
+	/**
+	 * Helper method used to check sorting
+	 */
+	public void arraySort() {
+		Arrays.sort(cards);
 
-		// While both arrays have elements left unprocessed:
-		while (i <= middle && j <= to) {
-			if (a[i] < a[j]) {
-				temp[k] = a[i]; // Or simply temp[k] = a[i++];
-				i++;
-			} else {
-				temp[k] = a[j];
-				j++;
-			}
-			k++;
-		}
-
-		// Copy the tail of the first half, if any, into temp:
-		while (i <= middle) {
-			temp[k] = a[i]; // Or simply temp[k++] = a[i++]
-			i++;
-			k++;
-		}
-
-		// Copy the tail of the second half, if any, into temp:
-		while (j <= to) {
-			temp[k] = a[j]; // Or simply temp[k++] = a[j++]
-			j++;
-			k++;
-		}
-
-		// Copy temp back into a
-		for (k = from; k <= to; k++)
-			a[k] = temp[k];
 	}
-
 }
